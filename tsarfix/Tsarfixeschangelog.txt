@@ -1,0 +1,21 @@
+Changelog: 
+
+- Serbia now gets cores on Crotian territory with the focus "Finalise Serbo-Croat Integration"
+
+- Austrian Focus "Proclaim GroBdeutschland" now properly requires you hold the "Three major German cities", and displays the cores gained.
+
+- Changed localisation in Austrian focus "Wunderwaffe von Osterreich" to properly reflect atomic weaponry of the era.
+
+- Russian Manchuria now properly displays leader portrait
+
+- Removed unfixable spirits from British India (Except for Agrarian Society)
+
+- Changed Belgium Election events.
+
+- Moved Belgian idealogy focuses to properly represent idealogy.
+
+- Added a choice to keep the Monarchists in power in Belgium.
+
+- Relabeled Various Belgian parties
+
+- Made Beglian focuses "Dietsland" and "Comintern" Both ideology specific, and mutually exclusive.
