@@ -1,0 +1,1786 @@
+focus_tree = {
+	id = Belgian
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = BEL
+		}
+	}
+	default = no
+	focus = {
+		id = BEL_1936_general_elections
+		icon = GFX_goal_generic_neutrality_focus
+		cost = 1.00
+		x = 6
+		y = 0
+		available = {
+				has_country_flag = bel_elections_begone #Done
+		}
+		completion_reward = {
+			add_stability = 0.05
+		}
+
+	}
+	focus = {
+		id = BEL_politics
+		icon = GFX_focus_generic_anti_fascist_diplomacy
+		cost = 10.00
+		x = 23
+		y = 0
+		available = {
+		has_country_flag = bel_elections_begone
+		}
+		completion_reward = {
+		add_political_power = 120
+		}
+	}
+	focus = {
+		id = BEL_budget
+		icon = GFX_focus_generic_treaty
+		cost = 10.00
+		x = 40
+		y = 0
+		completion_reward = {
+		add_political_power = 120
+		}
+	}
+	focus = {
+		id = BEL_election_victory_labour
+		icon = GFX_focus_bel_labour
+		cost = 10.00
+		prerequisite = {
+			focus = BEL_1936_general_elections
+		}
+		mutually_exclusive = {
+			focus = BEL_election_victory_communist
+			focus = BEL_election_victory_verdinaso
+			focus = BEL_election_victory_rex
+			focus = BEL_election_victory_liberal
+			focus = BEL_election_victory_catholic
+		}
+		x = 3
+		y = 1
+		available = { 
+			has_war = no 
+			OR = {
+			has_government = socialist
+			has_government = democratic
+			}
+		}
+		completion_reward = {
+			add_popularity = {
+					ideology = socialist
+					popularity = 0.1
+				}
+		}
+
+	}
+	focus = {
+		id = BEL_allow_picketing
+		icon = GFX_focus_bel_picketing
+		cost = 10.00
+		prerequisite = {
+			focus = BEL_election_victory_labour
+		}
+		x = 3
+		y = 2
+		completion_reward = {
+			add_stability = 0.1
+		}
+	}
+	focus = {
+		id = BEL_decrease_work_hours
+		icon = GFX_goal_generic_construction
+		cost = 10.00
+		prerequisite = {
+			focus = BEL_allow_picketing
+		}
+		x = 3
+		y = 3
+		completion_reward = {
+			add_ideas = BEL_decreased_hours_idea
+		}
+	}
+	focus = {
+		id = BEL_increase_taxes
+		icon = GFX_focus_bel_taxes
+		cost = 10.00
+		prerequisite = {
+			focus = BEL_decrease_work_hours
+		}
+		x = 3
+		y = 4
+		completion_reward = {
+			add_ideas = BEL_higher_taxes_idea
+		}
+
+	}
+	focus = {
+		id = BEL_election_victory_liberal
+		icon = GFX_focus_bel_liberal
+		cost = 10.00
+		prerequisite = {
+			focus = BEL_1936_general_elections
+		}
+		mutually_exclusive = {
+			focus = BEL_election_victory_communist
+			focus = BEL_election_victory_verdinaso
+			focus = BEL_election_victory_rex
+			focus = BEL_election_victory_catholic
+			focus = BEL_election_victory_labour
+		}
+		x = 5
+		y = 1
+		available = { 
+			has_war = no 
+			has_government = democratic
+			}
+		completion_reward = {
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.24
+			}
+		set_politics = { ruling_party = democratic elections_allowed = yes }	
+		}
+	}
+	focus = {
+		id = BEL_increase_womans_suffrage
+		icon = GFX_goal_continuous_boost_freedom
+		cost = 10.00
+		prerequisite = {
+			focus = BEL_election_victory_liberal
+		}
+		x = 5
+		y = 2
+		completion_reward = {
+			add_stability = 0.05
+		}
+	}
+	focus = {
+		id = BEL_lower_taxes
+		icon = GFX_goal_generic_consumer_goods
+		cost = 10.00
+		prerequisite = {
+			focus = BEL_increase_womans_suffrage
+		}
+		x = 5
+		y = 3
+		completion_reward = {
+		add_ideas = BEL_lower_taxes_idea
+		}
+	}
+	focus = {
+		id = BEL_secular_education
+		icon = GFX_focus_generic_military_academy
+		cost = 10.00
+		prerequisite = {
+			focus = BEL_lower_taxes
+		}
+		x = 5
+		y = 4
+		completion_reward = {
+			add_ideas = BEL_secular_education_idea
+		}
+	}
+	focus = {
+		id = BEL_election_victory_catholic
+		icon = GFX_focus_bel_catholic
+		cost = 10.00
+		prerequisite = {
+			focus = BEL_1936_general_elections
+		}
+		mutually_exclusive = {
+			focus = BEL_election_victory_communist
+			focus = BEL_election_victory_verdinaso
+			focus = BEL_election_victory_rex
+			focus = BEL_election_victory_liberal
+			focus = BEL_election_victory_labour
+		}
+		x = 7
+		y = 1
+		available = { 
+			has_war = no 
+			has_government = conservatives
+		}
+		completion_reward = {
+			add_popularity = {
+				ideology = conservatives
+				popularity = 0.15
+			}
+		}
+	}
+	focus = {
+		id = BEL_unemployment_measures
+		icon = GFX_focus_hun_society
+		cost = 10.00
+		prerequisite = {
+			focus = BEL_election_victory_catholic
+		}
+		x = 7
+		y = 2
+		completion_reward = {
+			add_stability = 0.1
+		}
+	}
+	focus = {
+		id = BEL_devalue_the_currency
+		icon = GFX_goal_generic_positive_trade_relations
+		cost = 10.00
+		prerequisite = {
+			focus = BEL_unemployment_measures
+		}
+		x = 7
+		y = 3
+		completion_reward = {
+			add_ideas = BEL_devalue_currency_idea
+		}
+	}
+	focus = {
+		id = BEL_40h_work_week
+		icon = GFX_focus_jap_industry2
+		cost = 10.00
+		prerequisite = {
+			focus = BEL_devalue_the_currency
+		}
+		x = 7
+		y = 4
+		completion_reward = {
+		add_ideas = BEL_40h_week_idea
+		}
+	}
+	focus = {
+		id = BEL_election_victory_rex
+		icon = GFX_focus_bel_rex
+		cost = 10.00
+		prerequisite = {
+			focus = BEL_1936_general_elections
+		}
+		mutually_exclusive = {
+			focus = BEL_election_victory_communist
+			focus = BEL_election_victory_verdinaso
+			focus = BEL_election_victory_catholic
+			focus = BEL_election_victory_liberal
+			focus = BEL_election_victory_labour
+		}
+		x = 11
+		y = 1
+		available = { 
+			has_war = no 
+			has_government = fascism
+		}
+		completion_reward = {
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.24
+			}
+		set_politics = { ruling_party = fascism elections_allowed = no }	
+		}
+	}
+	focus = {
+		id = BEL_reduce_flemish_autonomy
+		icon = GFX_goal_tfv_saf_anti_colonialist_crusade
+		cost = 10.00
+		prerequisite = {
+			focus = BEL_election_victory_rex
+		}
+		x = 11
+		y = 2
+		completion_reward = {
+		remove_ideas = BEL_wallonie_flanders_idea
+		add_timed_idea = { idea = BEL_terror_idea days = 365 }
+		}
+	}
+	focus = {
+		id = BEL_election_victory_verdinaso
+		icon = GFX_focus_bel_verdinaso
+		cost = 10.00
+		prerequisite = {
+			focus = BEL_1936_general_elections
+		}
+		mutually_exclusive = {
+			focus = BEL_election_victory_communist
+			focus = BEL_election_victory_rex
+			focus = BEL_election_victory_catholic
+			focus = BEL_election_victory_liberal
+			focus = BEL_election_victory_labour
+		}
+		x = 13
+		y = 1
+		available = { 
+			has_war = no 
+			has_government = fascism
+		}
+		completion_reward = {
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.24
+			}
+		set_politics = { ruling_party = fascism elections_allowed = no }	
+		}
+	}
+	focus = {
+		id = BEL_declare_flemish_independence
+		icon = GFX_goal_anschluss
+		cost = 10.00
+		prerequisite = {
+			focus = BEL_election_victory_verdinaso
+		}
+		x = 13
+		y = 2
+		available = {
+		WAL = { exists = no }
+		OR = {
+		controls_state = 34 
+		controls_state = 765
+		controls_state = 791
+		}
+		}
+		completion_reward = {
+		release = WAL
+		give_guarantee = WAL
+		remove_ideas = BEL_wallonie_flanders_idea
+			news_event = {
+				id = belgium.1 #Done
+   				days = 3
+			}
+			}
+	}
+	focus = {
+		id = BEL_embrace_catholicism
+		icon = GFX_focus_bel_christianity
+		cost = 10.00
+		prerequisite = {
+			focus = BEL_reduce_flemish_autonomy
+			focus = BEL_declare_flemish_independence
+		}
+		x = 11
+		y = 3
+		completion_reward = {
+			add_ideas = BEl_state_christianity
+		}
+	}
+	focus = {
+		id = BEL_election_victory_communist
+		icon = GFX_focus_bel_communist
+		cost = 10.00
+		prerequisite = {
+			focus = BEL_1936_general_elections
+		}
+		mutually_exclusive = {
+			focus = BEL_election_victory_verdinaso
+			focus = BEL_election_victory_rex
+			focus = BEL_election_victory_catholic
+			focus = BEL_election_victory_liberal
+			focus = BEL_election_victory_labour
+		}
+		x = 1
+		y = 1
+		available = { 
+			has_war = no 
+			OR = {
+			has_government = socialist
+			has_government = communism
+			}}
+		completion_reward = {
+			add_popularity = {
+				ideology = communism
+				popularity = 0.24
+			}
+		set_politics = { ruling_party = communism elections_allowed = yes }	
+		}
+	}
+	focus = {
+		id = BEL_fate_of_the_king
+		icon = GFX_goal_tfv_sever_ties_with_uk
+		cost = 10.00
+		prerequisite = {
+			focus = BEL_election_victory_communist
+		}
+		x = 1
+		y = 2
+		completion_reward = {
+			country_event = {
+				id = belgium.2
+   				days = 2
+			}
+			}
+	}
+	focus = {
+		id = BEL_redistribute_means_production
+		icon = GFX_goal_generic_soviet_construction
+		cost = 10.00
+		prerequisite = {
+			focus = BEL_fate_of_the_king
+		}
+		x = 1
+		y = 3
+		completion_reward = {
+		random_owned_controlled_state = {
+		 add_extra_state_shared_building_slots = 2
+		 add_building_construction = {
+			 type = industrial_complex
+			 level = 2
+			 instant_build = yes
+		    }
+		  }	
+		}
+	}
+	focus = {
+		id = BEL_classless_society
+		icon = GFX_focus_generic_soviet_politics
+		cost = 10.00
+		prerequisite = {
+			focus = BEL_redistribute_means_production
+		}
+		x = 1
+		y = 4
+		completion_reward = {
+			add_stability = 0.15
+		}
+	}
+	focus = {
+		id = BEL_declare_neutrality
+		icon = GFX_goal_generic_alliance
+		cost = 10.00
+		prerequisite = {
+			focus = BEL_politics
+		}
+		mutually_exclusive = {
+			focus = BEL_seek_an_ally
+			focus = BEL_expansionism
+		}
+		x = 17
+		y = 1
+		available = {
+		OR = {
+		has_government = democratic
+		has_government = conservatives
+		has_government = neutrality 
+		has_government = socialist
+		}
+		}
+		completion_reward = {
+		add_ideas = neutrality_idea
+		}
+	}
+	focus = {
+		id = BEL_benelux_alone
+		icon = GFX_goal_rhineland
+		cost = 10.00
+		prerequisite = {
+			focus = BEL_declare_neutrality
+		}
+		mutually_exclusive = {
+			focus = BEL_armed_neutrality
+		}
+		x = 15
+		y = 2
+		available = {
+		OR = {
+		has_government = democratic
+		has_government = conservatives
+		has_government = neutrality 
+		has_government = socialist
+		}
+		is_in_faction = no
+		is_puppet = no
+		}	
+		completion_reward = {
+		create_faction = benelux_faction
+		set_rule = { can_create_factions = yes }
+		}
+	}
+	focus = {
+		id = BEL_invite_netherlands
+		icon = GFX_goal_generic_improve_relations
+		cost = 10.00
+		prerequisite = {
+			focus = BEL_benelux_alone
+		}
+		x = 14
+		y = 3
+		available = {
+		BEL = {
+		is_faction_leader = yes
+		}
+		HOL = { 
+		NOT = {
+		has_war_with = BEL
+		}
+		is_in_faction = no
+		exists = yes }
+		}
+		completion_reward = {
+		HOL = {
+		country_event = { days = 1 id = generic.5 }
+		}
+		}
+	}
+	focus = {
+		id = BEL_invite_luxemburg
+		icon = GFX_goal_generic_national_unity
+		cost = 10.00
+		prerequisite = {
+			focus = BEL_benelux_alone
+		}
+		x = 16
+		y = 3
+		available = {
+		BEL = {
+		is_faction_leader = yes
+		}
+		LUX = { 
+		NOT = {
+		has_war_with = BEL
+		}
+		is_in_faction = no
+		exists = yes }
+		}
+		completion_reward = {
+		LUX = {
+		country_event = { days = 1 id = generic.5 }
+		}
+		}
+	}
+	focus = {
+		id = BEL_unite_union
+		icon = GFX_goal_tripartite_pact
+		cost = 10.00
+		prerequisite = {
+			focus = BEL_invite_netherlands
+		}
+		prerequisite = {
+			focus = BEL_invite_luxemburg
+		}
+		x = 15
+		y = 4
+		available = {
+		BEL = {
+		is_faction_leader = yes
+		}
+		LUX = {
+		is_in_faction_with = BEL
+		}
+		HOL = {
+		is_in_faction_with = BEL
+		}
+		}
+		completion_reward = {
+		HOL = { country_event = { id = belgium.1003 days = 2 } } #Done
+		LUX = { country_event = { id = belgium.1004 days = 2 } } #Done
+		}
+	}
+	focus = {
+		id = BEL_develop_LUX
+		icon = GFX_goal_generic_construction2
+		cost = 10.00
+		prerequisite = {
+			focus = BEL_invite_luxemburg
+		}
+		x = 16
+		y = 5
+		available = {
+		OR = {
+		LUX = { is_in_faction_with = BEL }
+		controls_state = 8
+		}
+		}
+		completion_reward = {
+		8 = {
+		 add_extra_state_shared_building_slots = 1
+		 add_building_construction = {
+			 type = industrial_complex
+			 level = 1
+			 instant_build = yes
+		    }
+				
+		  }
+		}
+	}
+	focus = {
+		id = BEL_armed_neutrality
+		icon = GFX_focus_generic_little_entente
+		cost = 10.00
+		prerequisite = {
+			focus = BEL_declare_neutrality
+		}
+		mutually_exclusive = {
+			focus = BEL_benelux_alone
+		}
+		x = 18
+		y = 2
+		completion_reward = {
+		add_ideas = BEL_armed_neutrality_idea
+		}
+	}
+	focus = {
+		id = BEL_weapon_exports
+		icon = GFX_focus_generic_support_the_left_right
+		cost = 10.00
+		prerequisite = {
+			focus = BEL_armed_neutrality
+		}
+		x = 18
+		y = 3
+		completion_reward = {	
+		random_owned_controlled_state = {
+		 add_extra_state_shared_building_slots = 1
+		 add_building_construction = {
+			 type = arms_factory
+			 level = 1
+			 instant_build = yes
+			}
+			}
+		random_owned_controlled_state = {
+		 add_extra_state_shared_building_slots = 1
+		 add_building_construction = {
+			 type = arms_factory
+			 level = 1
+			 instant_build = yes
+			}
+			}	
+		}	
+	}
+	focus = {
+		id = BEL_prepare_blockade
+		icon = GFX_goal_generic_consumer_goods
+		cost = 10.00
+		prerequisite = {
+			focus = BEL_weapon_exports
+		}
+		x = 18
+		y = 4
+		completion_reward = {
+		add_ideas = BEL_blockade_idea
+		}
+	}
+	focus = {
+		id = BEL_soldier_king
+		icon = GFX_goal_generic_special_forces
+		cost = 10.00
+		prerequisite = {
+			focus = BEL_prepare_blockade
+		}
+		x = 18
+		y = 5
+		completion_reward = {
+		army_experience = 10
+		add_stability = 0.05
+		add_war_support = 0.15
+		create_corps_commander = {
+					name = "S.M.R. Leopold III"
+					picture = "leopold3.tga"
+					traits = { commando }
+					skill = 1
+					attack_skill = 1
+					defense_skill = 1
+					planning_skill = 1
+					logistics_skill = 1
+				}
+		}
+	}
+	focus = {
+		id = BEL_seek_an_ally
+		icon = GFX_goal_generic_improve_relations
+		cost = 10.00
+		prerequisite = {
+			focus = BEL_politics
+		}
+		mutually_exclusive = {
+			focus = BEL_declare_neutrality
+			focus = BEL_expansionism
+		}
+		x = 23
+		y = 1
+		completion_reward = {
+		add_political_power = 60
+		add_war_support = 0.1
+		}
+	}
+	focus = {
+		id = BEL_french_guarantee
+		icon = GFX_focus_chi_reach_out_to_france
+		cost = 10.00
+		prerequisite = {
+			focus = BEL_seek_an_ally
+		}
+		mutually_exclusive = {
+			focus = BEL_invite_germany
+		}
+		x = 21
+		y = 2
+		available = {
+		OR = {
+		has_government = democratic
+		has_government = conservatives
+		has_government = neutrality 
+		has_government = socialist
+		}
+		threat > 0.1
+		has_war = no
+		is_in_faction = no 
+		NOT = {
+		has_war_with = FRA
+		}
+		}
+		
+		completion_reward = {
+		FRA = { country_event = { id = belgium.9 days = 3 } }
+		}
+	}
+	focus = {
+		id = BEL_french_alliance
+		icon = GFX_goal_anschluss
+		cost = 10.00
+		prerequisite = {
+			focus = BEL_french_guarantee
+		}
+		mutually_exclusive = {
+			focus = BEL_join_allies
+		}
+		x = 20
+		y = 3
+		completion_reward = {
+		create_faction = belgian_entente_faction
+		set_rule = { can_create_factions = yes }
+		}
+	}
+	focus = {
+		id = BEL_join_allies
+		icon = GFX_goal_generic_improve_relations
+		cost = 10.00
+		prerequisite = {
+			focus = BEL_french_guarantee
+		}
+		mutually_exclusive = {
+			focus = BEL_french_alliance
+		}
+		x = 22
+		y = 3
+		available = { 
+		threat > 0.2
+		is_puppet = no 
+		NOT = { 
+		has_war_with = FRA
+		has_war_with = ENG } }
+		completion_reward = {
+		ENG = {
+		country_event = { days = 1 id = generic.2 }
+		}
+		}
+	}
+	focus = {
+		id = BEL_invite_germany
+		icon = GFX_focus_chi_mission_to_germany
+		cost = 10.00
+		prerequisite = {
+			focus = BEL_seek_an_ally
+		}
+		mutually_exclusive = {
+			focus = BEL_french_guarantee
+		}
+		x = 25
+		y = 2
+		available = { 
+		OR = {
+		has_government = conservatives
+		has_government = neutrality 
+		has_government = fascism
+		}
+		threat > 0.1
+		is_puppet = no 
+		NOT = { 
+		has_war_with = GER } }
+		completion_reward = {
+			GER = {
+					add_opinion_modifier = {
+							target = BEL
+							modifier = bel_diplo_mission
+						}
+				}
+
+	}
+	}
+	focus = {
+		id = BEL_joint_GER
+		icon = GFX_focus_prc_infiltration
+		cost = 10.00
+		prerequisite = {
+			focus = BEL_invite_germany
+		}
+		x = 24
+		y = 3
+		available = {
+		NOT = {
+		has_war_with = GER
+		}
+		}
+		completion_reward = {
+		GER = { country_event = { id = generic.2 days = 2 } }
+		}
+	}
+	focus = {
+		id = BEL_eupen_for_flanders
+		icon = GFX_goal_generic_position_armies
+		cost = 10.00
+		prerequisite = {
+			focus = BEL_joint_GER
+		}
+		x = 24
+		y = 4
+		available = {
+		is_in_faction_with = GER
+		}
+		completion_reward = {
+		add_threat = 1
+		GER = { country_event = { days = 3 id = belgium.10 } } #eupen to be transfered for claims in france
+		}
+	}
+	focus = {
+		id = BEL_greater_BEL
+		icon = GFX_focus_ger_reichskommisariats
+		cost = 10.00
+		prerequisite = {
+			focus = BEL_eupen_for_flanders
+		}
+		x = 24
+		y = 5
+		completion_reward = {
+		set_cosmetic_tag = BEL_great
+		add_threat = 2
+		news_event = { id = belgium.1005 days = 3 } #Done 
+		}
+	}
+	focus = {
+		id = BEL_expansionism
+		icon = GFX_goal_generic_army_artillery2
+		cost = 10.00
+		prerequisite = {
+			focus = BEL_politics
+		}
+		mutually_exclusive = {
+			focus = BEL_seek_an_ally
+			focus = BEL_declare_neutrality
+		}
+		x = 29
+		y = 1
+		available = {
+		has_army_manpower = { size > 120000 }
+		OR = {
+		has_government = fascism
+		has_government = neutrality 
+		has_government = communism
+		}
+		}
+		completion_reward = {
+		add_ideas = BEL_expansionism_idea
+		}
+	}
+	focus = {
+		id = BEL_greater_netherlands
+		icon = GFX_goal_generic_national_unity
+		cost = 10.00
+		prerequisite = {
+			focus = BEL_expansionism
+		}
+		mutually_exclusive = {
+		focus =	BEL_comintern
+		}
+		x = 27
+		y = 2
+		available = {
+		has_army_manpower = { size > 120000 }
+		}
+		completion_rewa`d = {
+		add_threat = 2
+		news_event = { id = belgium.1005 days = 1 } #Done
+		set_cosmetic_tag = BEL_diets
+		}
+	}
+	focus = {
+		id = BEL_take_luxemburg
+		icon = GFX_goal_tfv_saf_anti_colonialist_crusade
+		cost = 10.00
+		prerequisite = {
+			focus = BEL_joint_GER
+			focus = BEL_greater_netherlands
+		}
+		x = 26
+		y = 4
+		will_lead_to_war_with = LUX
+		available = {
+		LUX = { exists = yes }
+		}
+		completion_reward = {
+		add_threat = 2 
+				create_wargoal = { type = annex_everything target = LUX }
+		}
+	}
+	focus = {
+		id = BEL_french_flanders
+		icon = GFX_goal_demand_sudetenland
+		cost = 10.00
+		prerequisite = {
+			focus = BEL_greater_netherlands
+		}
+		x = 28
+		y = 3
+		bypass = {
+		controls_state = 812
+		}
+		completion_reward = {
+		add_state_claim = 812
+		}
+	}
+	focus = {
+		id = BEL_liberate_boers
+		icon = GFX_goal_generic_secret_weapon
+		cost = 10.00
+		prerequisite = {
+			focus = BEL_french_flanders
+		}
+		x = 28
+		y = 4
+		bypass = {
+		has_war_with = SAF
+		}
+		available = { 
+		is_puppet = no
+		SAF = { exists = yes }
+		}
+		completion_reward = {
+			create_wargoal = { type = annex_everything target = SAF }
+			BEL = { add_state_claim = 275 }
+			BEL = { add_state_claim = 719 }
+			BEL = { add_state_claim = 681 }
+			BEL = { add_state_claim = 541 }
+		}
+	}
+	focus = {
+		id = BEL_conquer_rhine_meuse
+		icon = GFX_focus_generic_strike_at_democracy1
+		cost = 10.00
+		prerequisite = {
+			focus = BEL_liberate_boers
+		}
+		x = 28
+		y = 5
+		bypass = {
+		has_war_with = GER
+		}
+		available = { 
+		GER = {
+		controls_state = 51 
+		controls_state = 794
+		}
+		}
+		completion_reward = {
+			create_wargoal = { type = take_state_focus target = GER generator = { 51 794 } }
+			BEL = { add_state_claim = 51 }
+			BEL = { add_state_claim = 794 }
+		}
+	}
+	focus = {
+		id = BEL_comintern
+		icon = GFX_focus_generic_join_comintern
+		cost = 10.00
+		prerequisite = {
+			focus = BEL_expansionism
+		}
+		mutually_exclusive = {
+		focus = BEL_greater_netherlands
+		}
+		x = 31
+		y = 2
+		completion_reward = {
+		create_faction = belgian_comintern
+		set_rule = { can_create_factions = yes }
+		}
+	}
+	focus = {
+		id = BEL_red_benelux
+		icon = GFX_focus_ger_bulwark_against_bolshevism
+		cost = 10.00
+		prerequisite = {
+			focus = BEL_comintern
+		}
+		x = 30
+		y = 3
+		completion_reward = {
+		add_ideas = BAV_wor_rev
+		}
+	}
+	focus = {
+		id = BEL_help_from_BAV
+		icon = GFX_focus_chi_mission_to_the_soviet_union
+		cost = 10.00
+		prerequisite = {
+			focus = BEL_comintern
+		}
+		x = 31
+		y = 4
+		available = {
+		BAV = { 
+		NOT = { has_war_with = BEL }
+		exists = yes }
+		}
+		completion_reward = {
+		BAV = { country_event = { id = belgium.11 days = 2 } } #Done
+		}
+	}
+	focus = {
+		id = BEL_war_ENG
+		icon = GFX_goal_generic_major_war
+		cost = 10.00
+		prerequisite = {
+			focus = BEL_help_from_BAV
+		}
+		x = 30
+		y = 5
+		bypass = {
+		has_war_with = ENG
+		}
+		available = {
+		is_puppet = no
+		ENG =  { exists = yes }
+		}
+		completion_reward = {
+		create_wargoal = { type = puppet_wargoal_focus target = ENG }
+		}
+	}
+	focus = {
+		id = BEL_war_LUX_HOL
+		icon = GFX_focus_YUG_pan_slavic_congress
+		cost = 10.00
+		prerequisite = {
+			focus = BEL_comintern
+		}
+		x = 32
+		y = 3
+		bypass = {
+		has_war_with = LUX
+		has_war_with = HOL
+		}
+		completion_reward = {
+			if = {
+			limit = { LUX = { exists = yes } }
+			create_wargoal = { type = puppet_wargoal_focus target = LUX } }
+			if = {
+			limit = { HOL = { exists = yes } }
+			create_wargoal = { type = puppet_wargoal_focus target = HOL } }
+		}
+	}
+	focus = {
+		id = BEL_war_FRA
+		icon = GFX_goal_generic_major_war
+		cost = 10.00
+		prerequisite = {
+			focus = BEL_help_from_BAV
+		}
+		x = 32
+		y = 5
+		bypass = {
+		has_war_with = FRA
+		}
+		available = {
+		is_puppet = no
+		FRA =  { exists = yes }
+		}
+		completion_reward = {
+		create_wargoal = { type = puppet_wargoal_focus target = FRA }
+		}
+	}
+	focus = {
+		id = BEL_industry
+		icon = GFX_goal_generic_fortify_city
+		cost = 10.00
+		prerequisite = {
+			focus = BEL_budget
+		}
+		x = 36
+		y = 1
+		completion_reward = {
+		add_tech_bonus = {
+				name = GER_four_year_plan
+				bonus = 0.5
+				uses = 1
+				category = industry
+			}
+		random_owned_controlled_state = {
+		 add_extra_state_shared_building_slots = 1
+		 }
+		random_owned_controlled_state = {
+		 add_extra_state_shared_building_slots = 1
+		 } 
+		 }
+	}
+	focus = {
+		id = BEL_civil_effort
+		icon = GFX_focus_generic_the_giant_wakes
+		cost = 10.00
+		prerequisite = {
+			focus = BEL_industry
+		}
+		x = 35
+		y = 2
+		completion_reward = {
+		random_owned_controlled_state = {
+		 add_extra_state_shared_building_slots = 2
+		 add_building_construction = {
+			 type = industrial_complex
+			 level = 2
+			 instant_build = yes
+		    }
+				
+		  }}
+	}
+	focus = {
+		id = BEL_milit_effort
+		icon = GFX_goal_generic_production
+		cost = 10.00
+		prerequisite = {
+			focus = BEL_civil_effort
+		}
+		x = 35
+		y = 3
+		completion_reward = {
+		army_experience = 10
+		random_owned_controlled_state = {
+		 add_extra_state_shared_building_slots = 2
+		 add_building_construction = {
+			 type = arms_factory
+			 level = 2
+			 instant_build = yes
+		    }
+		  }
+		  }
+	}	
+	focus = {
+		id = BEL_dockyard_effort
+		icon = GFX_goal_generic_construct_naval_dockyard
+		cost = 10.00
+		prerequisite = {
+			focus = BEL_milit_effort
+		}
+		x = 35
+		y = 4
+		completion_reward = {
+		navy_experience = 10	
+		random_owned_controlled_state = {
+					limit = {
+						is_coastal = yes
+					}
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = dockyard
+						level = 2
+						instant_build = yes
+					}
+				}
+		}		
+	}
+	focus = {
+		id = BEL_develop_congo
+		icon = GFX_goal_generic_air_production
+		cost = 10.00
+		prerequisite = {
+			focus = BEL_industry
+		}
+		x = 37
+		y = 2
+		available = {
+		OR = {
+		controls_state = 295
+		COG = { is_puppet_of = BEL }
+		}
+		}
+		completion_reward = {
+		295 = {
+		 add_extra_state_shared_building_slots = 1
+		 add_building_construction = {
+			 type = industrial_complex
+			 level = 1
+			 instant_build = yes
+		    }
+				
+		  }}
+	}
+	focus = {
+		id = BEL_congo_mines
+		icon = GFX_goal_generic_build_tank
+		cost = 10.00
+		prerequisite = {
+			focus = BEL_develop_congo
+		}
+		x = 37
+		y = 3
+		available = {
+		OR = {
+		controls_state = 295
+		COG = { is_puppet_of = BEL }
+		}
+		}
+		completion_reward = {
+			add_resource = {
+				type = steel
+				amount = 62
+				state = 295
+			}
+	
+	}
+	}
+	focus = {
+		id = BEL_armed_forces
+		icon = GFX_goal_generic_political_pressure
+		cost = 10.00
+		prerequisite = {
+			focus = BEL_budget
+		}
+		x = 44
+		y = 1
+		completion_reward = {
+		army_experience = 10
+		navy_experience = 10
+		air_experience = 10
+		random_owned_controlled_state = {
+		 add_extra_state_shared_building_slots = 2
+		 add_building_construction = {
+			 type = arms_factory
+			 level = 2
+			 instant_build = yes
+		    }
+		  }
+		}
+	}
+	focus = {
+		id = BEL_defense_lines
+		icon = GFX_goal_generic_fortify_city
+		cost = 10.00
+		prerequisite = {
+			focus = BEL_industry
+		}
+		prerequisite = {
+			focus = BEL_armed_forces
+		}
+		x = 40
+		y = 2
+		completion_reward = {
+			add_ideas = FRA_fortification_focus
+		}
+	}
+	focus = {
+		id = BEL_revive_hindenburg_line
+		icon = GFX_goal_generic_construct_military
+		cost = 10.00
+		prerequisite = {
+			focus = BEL_defense_lines
+		}
+		x = 39
+		y = 3
+		available = {
+			owns_state = 765
+			owns_state = 34
+			owns_state = 6
+		}
+		completion_reward = {
+
+		765 = {
+			add_building_construction = {
+			    type = bunker
+				province = 9418
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+                type = bunker
+ 				province = 9444
+				level = 2
+				instant_build = yes
+				}
+			}
+
+		34 = {
+			add_building_construction = {
+			    type = bunker
+				province = 13081
+				level = 2
+				instant_build = yes
+				}
+			add_building_construction = {
+			    type = bunker
+				province = 9536
+				level = 2
+				instant_build = yes
+				}
+			}
+
+		6 = {
+			add_building_construction = {
+			    type = bunker
+				province = 3576
+				level = 2
+				instant_build = yes
+				}
+			add_building_construction = {
+			    type = bunker
+				province = 6446
+				level = 2
+				instant_build = yes
+				}
+			}
+
+		}
+	}
+	focus = {
+		id = BEL_extend_maginot
+		icon = GFX_goal_generic_construct_military
+		cost = 10.00
+		prerequisite = {
+			focus = BEL_defense_lines
+		}
+		x = 41
+		y = 3
+		available = {
+			owns_state = 791
+			owns_state = 765
+		}
+		completion_reward = {
+			765 = {
+			add_building_construction = {
+			    type = bunker
+				province = 9418
+				level = 2
+				instant_build = yes
+				}
+			add_building_construction = {
+			    type = bunker
+				province = 11407
+				level = 2
+				instant_build = yes
+				}
+			}
+
+			791 = {
+			add_building_construction = {
+			    type = bunker
+				province = 3488
+				level = 2
+				instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = BEL_retreat_line
+		icon = GFX_goal_generic_construct_military
+		cost = 10.00
+		prerequisite = {
+			focus = BEL_extend_maginot
+		}
+		x = 41
+		y = 4
+		available = {
+			owns_state = 34
+		}
+		completion_reward = {
+			34 = {
+			add_building_construction = {
+			    type = bunker
+				province = 11519
+				level = 3
+				instant_build = yes
+				}
+			add_building_construction = { 
+			    type = bunker
+				province = 3516
+				level = 3
+				instant_build = yes
+				}
+			add_building_construction = { 
+			    type = bunker
+				province = 13081
+				level = 3
+				instant_build = yes
+				}
+			}
+
+		}
+	}
+	focus = {
+		id = BEL_slot_1
+		icon = GFX_goal_continuous_research
+		cost = 10.00
+		prerequisite = {
+			focus = BEL_armed_forces
+		}
+		x = 42
+		y = 2
+		completion_reward = {
+		add_research_slot = 1
+		}	
+	}
+	focus = {
+		id = BEL_new_doctrines
+		icon = GFX_goal_generic_cavalry
+		cost = 10.00
+		prerequisite = {
+			focus = BEL_armed_forces
+		}
+		x = 44
+		y = 2
+		completion_reward = {
+		army_experience = 5
+			add_tech_bonus = {
+				name = land_doc_bonus
+				bonus = 0.5
+				uses = 2
+				category = land_doctrine
+			}
+	}
+	}
+	focus = {
+		id = BEL_inf_effort
+		icon = GFX_goal_generic_axis_build_infantry
+		cost = 10.00
+		prerequisite = {
+			focus = BEL_new_doctrines
+		}
+		x = 44
+		y = 3
+		completion_reward = {
+		add_tech_bonus = {
+				name = infantry_weapons_bonus
+				bonus = 0.5
+				uses = 2
+				category = infantry_weapons
+				category = artillery
+			}
+		}
+	}
+	focus = {
+		id = BEL_complete_reform
+		icon = GFX_goal_generic_forceful_treaty
+		cost = 10.00
+		prerequisite = {
+			focus = BEL_inf_effort
+		}
+		prerequisite = {
+			focus = BEL_air_force
+		}
+		prerequisite = {
+			focus = BEL_new_navy
+		}
+		x = 46
+		y = 4
+		completion_reward = {
+		army_experience = 20
+			add_tech_bonus = {
+				name = land_doc_bonus
+				bonus = 0.5
+				uses = 1
+				category = land_doctrine
+			}
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 1
+				name = mech_army_bonus
+				technology = basic_medium_tank
+				technology = improved_medium_tank
+				technology = advanced_medium_tank
+				technology = mechanised_infantry
+			}
+		remove_ideas = FRA_victors_of_wwi
+		}
+	}
+	focus = {
+		id = BEL_air_force
+		icon = GFX_goal_generic_air_doctrine
+		cost = 10.00
+		prerequisite = {
+			focus = BEL_armed_forces
+		}
+		x = 46
+		y = 2
+		completion_reward = {
+		add_tech_bonus = {
+				name = fighter_bonus
+				bonus = 0.5
+				uses = 1
+				technology = early_fighter
+				technology = fighter1
+				technology = fighter2
+				technology = fighter3
+
+			}
+		add_tech_bonus = {
+				name = airdoctrine_bonus
+				bonus = 0.5
+				uses = 2
+				category = air_doctrine
+			}
+		}
+	}
+	focus = {
+		id = BEL_corporatism
+		icon = GFX_goal_generic_construction
+		cost = 10.00
+		prerequisite = {
+			focus = BEL_embrace_catholicism
+		}
+		x = 11
+		y = 4
+		completion_reward = {
+		random_owned_controlled_state = {
+		 add_extra_state_shared_building_slots = 1
+		 add_building_construction = {
+			 type = arms_factory
+			 level = 1
+			 instant_build = yes
+		    }
+		  }
+		  }
+	}
+	focus = {
+		id = BEL_develop_HOL
+		icon = GFX_goal_generic_production2
+		cost = 10.00
+		prerequisite = {
+			focus = BEL_invite_netherlands
+		}
+		x = 14
+		y = 5
+		available = {
+		OR = {
+		HOL = { is_in_faction_with = BEL }
+		controls_state = 7
+		}
+		}
+		completion_reward = {
+		7 = {
+				add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = dockyard
+						level = 1
+						instant_build = yes
+					}
+				}
+		7 = {
+		 add_extra_state_shared_building_slots = 1
+		 add_building_construction = {
+			 type = industrial_complex
+			 level = 1
+			 instant_build = yes
+		    }
+				
+		  }
+		}
+	}
+	focus = {
+		id = BEL_fortress_benelux
+		icon = GFX_goal_generic_production2
+		cost = 10.00
+		prerequisite = {
+			focus = BEL_unite_union
+		}
+		x = 15
+		y = 6
+		available = {
+		owns_state = 36 
+		owns_state = 35
+		owns_state = 791
+		owns_state = 8
+		}
+		completion_reward = {
+		36 = {
+			add_building_construction = {
+			    type = bunker
+				province = 11318
+				level = 2
+				instant_build = yes
+				}
+			add_building_construction = {
+			    type = bunker
+				province = 9309
+				level = 2
+				instant_build = yes
+				}	
+			add_building_construction = {
+			    type = bunker
+				province = 9403
+				level = 2
+				instant_build = yes
+				}
+			add_building_construction = {
+			    type = bunker
+				province = 9363
+				level = 2
+				instant_build = yes
+				}		
+			}
+		35 = {
+			add_building_construction = {
+			    type = bunker
+				province = 11456
+				level = 2
+				instant_build = yes
+				}
+			add_building_construction = {
+			    type = bunker
+				province = 6500
+				level = 2
+				instant_build = yes
+				}	
+			add_building_construction = {
+			    type = bunker
+				province = 11562
+				level = 2
+				instant_build = yes
+				}
+			}
+		791 = {
+			add_building_construction = {
+			    type = bunker
+				province = 3488
+				level = 2
+				instant_build = yes
+				}
+		}
+		8 = {
+			add_building_construction = {
+			    type = bunker
+				province = 6583
+				level = 2
+				instant_build = yes
+				}
+		}	
+		}
+	}
+	focus = {
+		id = BEL_joint_french_training
+		icon = GFX_goal_generic_build_tank
+		cost = 10.00
+		prerequisite = {
+			focus = BEL_french_alliance
+		}
+		x = 20
+		y = 4
+		available = {
+		threat > 0.15
+		is_puppet = no
+		FRA = { 
+		is_puppet = no
+		exists = yes }
+		NOT = { has_war_with = FRA }
+		}
+		completion_reward = {
+			FRA = {
+			army_experience = 5
+			add_tech_bonus = {
+				name = land_doc_bonus
+				bonus = 0.5
+				uses = 1
+				category = land_doctrine
+			}
+			}
+			BEL = {
+			army_experience = 5
+			add_tech_bonus = {
+				name = land_doc_bonus
+				bonus = 0.5
+				uses = 1
+				category = land_doctrine
+			}
+			}
+			}
+	}
+	focus = {
+		id = BEL_war_HOL
+		icon = GFX_goal_generic_major_war
+		cost = 10.00
+		prerequisite = {
+			focus = BEL_take_luxemburg
+		}
+		x = 26
+		y = 5
+		will_lead_to_war_with = HOL
+		available = {
+		HOL = {
+		exists = yes
+		}
+		}
+		completion_reward = {
+				create_wargoal = { type = annex_everything target = HOL }
+	}
+	}
+	focus = {
+		id = BEL_fortify_westhoek
+		icon = GFX_goal_generic_construct_military
+		cost = 10.00
+		prerequisite = {
+			focus = BEL_revive_hindenburg_line
+		}
+		x = 39
+		y = 4
+		available = {
+			owns_state = 812
+		}
+		completion_reward = {
+			
+			812 = {
+			add_building_construction = {
+			    type = bunker
+				province = 11483
+				level = 3
+				instant_build = yes
+				}
+			add_building_construction = {
+			    type = bunker
+				province = 3536
+				level = 3
+				instant_build = yes
+				}
+			add_building_construction = {
+			    type = bunker
+				province = 11548
+				level = 3
+				instant_build = yes
+				}
+			}
+
+		}
+	}
+	focus = {
+		id = BEL_new_navy
+		icon = GFX_goal_generic_construct_naval_dockyard
+		cost = 10.00
+		prerequisite = {
+			focus = BEL_armed_forces
+		}
+		x = 48
+		y = 2
+		completion_reward = {
+		add_tech_bonus = {
+				name = sub_op_bonus
+				bonus = 0.5
+				uses = 2
+				technology = convoy_interdiction_ti
+				technology = unrestricted_submarine_warfare
+				technology = wolfpacks
+				technology = advanced_submarine_warfare
+				technology = combined_operations_raiding
+			}
+				random_owned_controlled_state = {
+					limit = {
+						is_coastal = yes
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = dockyard
+						level = 1
+						instant_build = yes
+					}
+				}
+	}
+	}
+}	
