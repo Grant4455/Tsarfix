@@ -1004,8 +1004,8 @@ focus_tree = {
 		}
 		completion_reward = {
 			create_wargoal = { type = annex_everything target = SAF }
-			BEL = { add_state_claim = 275 }
-			BEL = { add_state_claim = 719 }
+			BEL = { add_state_core = 275 }
+			BEL = { add_state_core = 719 }
 			BEL = { add_state_claim = 681 }
 			BEL = { add_state_claim = 541 }
 		}
