@@ -736,6 +736,9 @@ focus_tree = {
 		}
 		completion_reward = {
 		annex_country = { target = CRO transfer_troops = yes }
+		add_state_core = 109
+		add_state_core = 104
+		add_state_core = 163
 		add_political_power = 120
 		add_stability = 0.1  
 	        SER = { set_cosmetic_tag = YUG }
