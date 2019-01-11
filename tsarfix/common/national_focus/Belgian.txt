@@ -466,8 +466,7 @@ focus_tree = {
 		available = { 
 			has_war = no 
 			OR = {
-			has_government = socialist
-			has_government = communism
+			has_government = neutrality 
 			}}
 		completion_reward = {
 			add_popularity = {
@@ -836,7 +835,6 @@ focus_tree = {
 		y = 2
 		available = { 
 		OR = {
-		has_government = conservatives
 		has_government = neutrality 
 		has_government = fascism
 		}
@@ -920,8 +918,7 @@ focus_tree = {
 		available = {
 		has_army_manpower = { size > 120000 }
 		OR = {
-		has_government = fascism
-		has_government = neutrality 
+        has_completed_focus = BEL_election_victory_verdinaso
 		has_government = communism
 		}
 		}
@@ -942,9 +939,12 @@ focus_tree = {
 		x = 27
 		y = 2
 		available = {
-		has_army_manpower = { size > 120000 }
+		has_government = fascism
+		has_completed_focus = BEL_declare_flemish_independence
 		}
-		completion_rewa`d = {
+		completion_reward = {
+		add_state_core = 7
+		add_state_core = 36
 		add_threat = 2
 		news_event = { id = belgium.1005 days = 1 } #Done
 		set_cosmetic_tag = BEL_diets
@@ -965,6 +965,7 @@ focus_tree = {
 		LUX = { exists = yes }
 		}
 		completion_reward = {
+		add_state_core = 8
 		add_threat = 2 
 				create_wargoal = { type = annex_everything target = LUX }
 		}
@@ -1036,7 +1037,7 @@ focus_tree = {
 	focus = {
 		id = BEL_comintern
 		icon = GFX_focus_generic_join_comintern
-		cost = 10.00
+		cost = 10.00comintern
 		prerequisite = {
 			focus = BEL_expansionism
 		}
@@ -1045,6 +1046,8 @@ focus_tree = {
 		}
 		x = 31
 		y = 2
+		available = { has_government = communism
+		}
 		completion_reward = {
 		create_faction = belgian_comintern
 		set_rule = { can_create_factions = yes }
@@ -1763,6 +1766,7 @@ focus_tree = {
 		}
 		}
 		completion_reward = {
+		        add_state_core = 35
 				create_wargoal = { type = annex_everything target = HOL }
 	}
 	}
