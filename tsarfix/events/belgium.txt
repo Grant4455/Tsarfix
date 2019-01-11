@@ -1,0 +1,507 @@
+﻿#---------------------------------------> Belgium Events <---------------------------------------#
+
+add_namespace = belgium
+
+news_event = {
+        id = belgium.1
+        title = belgium.1.t
+        desc = belgium.1.d
+        picture = GFX_news_event_017
+
+        major = yes
+
+        is_triggered_only = yes
+        option = {
+		name = belgium.1.a
+		trigger = {
+			NOT = {
+				TAG = BEL
+			}
+			}
+			}
+			option = {
+		name = belgium.1.b
+			trigger = { TAG = BEL }
+	}
+}
+news_event = {
+        id = belgium.1005
+        title = belgium.1005.t
+        desc = belgium.1005.d
+        picture = GFX_news_event_017 #To replace maybe
+
+        major = yes
+
+        is_triggered_only = yes
+        option = {
+		name = belgium.1005.a
+		trigger = {
+			NOT = {
+				TAG = BEL
+			}
+			}
+			}
+			option = {
+		name = belgium.1005.b
+			trigger = { TAG = BEL }
+	}
+}
+#country_event = {	#Flanders Declares Independence
+#	id = belgium.1
+#	title = belgium.1.t
+#	desc = belgium.1.d
+#	#picture =
+#
+#	is_triggered_only = yes
+#	fire_only_once = yes
+#
+#	option = { #play as flanders
+#		name = belgium.1.a
+#		hidden_effect = {
+#			goto_province = 3516
+#			WAL = {
+#				transfer_state  = 34
+#				transfer_state  = 765
+#				transfer_state  = 791
+#			}
+#			BEL = {
+#				set_cosmetic_tag = FLA
+#				set_politics = {
+#					ruling_party = fascism
+#				}
+#				add_popularity = {
+#				   ideology = fascism
+#				   popularity = 0.15
+#				}
+#				set_party_name = { 
+#   					ideology = fascism
+#   					long_name = BEL_verdinaso_long
+#					name = BEL_verdinaso 
+#				}
+#				set_party_name = { 
+#					ideology = neutrality
+# 					long_name = BEL_vnv_long
+#					name = BEL_vnv
+#				}
+#			}
+#		}
+#	}
+#}
+
+country_event = { #The Fate of the King
+	id = belgium.2
+	title = belgium.2.t
+	desc = belgium.2.d
+	#picture =
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { #Execute the King
+		name = belgium.2.a #somehow make him die 
+		add_popularity = {
+    		ideology = communism
+    		popularity = 0.1
+		}
+		add_ideas = GER_rep
+	}
+
+	option = { #Expell the King
+		name = belgium.2.b
+		add_stability = 0.05
+		add_ideas = GER_rep
+	}
+}
+
+country_event = { #Invite Netherlands to Benelux Faction
+	id = belgium.3
+	title = belgium.3.t #Belgium invites us to join the Benelux
+	desc = belgium.3.d #Earlier today the belgian ambassador to the Netherlands has submitted an offer from the belgian embacy to join a military alliance with Belgium known as the "Benelux".
+	#picture =
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = belgium.3.a #This could greatly benefit both of us
+		ai_chance = {
+        factor = 100
+        }
+		BEL = { add_to_faction = HOL }
+	}
+
+	option = {
+		name = belgium.3.b #Politely Decline
+		ai_chance = {
+        factor = 0
+        }
+		BEL = { country_event = { id = belgium.4 days = 1 } }
+	}
+}
+
+country_event = { #Netherlands decline
+	id = belgium.4
+	title = belgium.4.t #Netherlands Decline
+	desc = belgium.4.d #After our offer to the Netherlands to join a military alliance our ambassador to the Netherlands has now received a polite decline from the Dutch Office of Foreign Affairs.
+	#picture =
+
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = belgium.4.a #Screw them
+	}
+}
+
+country_event = { #Invite Luxemburg to Benelux Faction
+	id = belgium.5
+	title = belgium.5.t #Belgium invites us to theit Faction
+	desc = belgium.5.d #Earlier today the belgian ambassador to Luxemburg has submitted an offer from the belgian embacy to join a military alliance with Belgium known as the "Benelux".
+	#picture =
+
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = belgium.5.a #This seems like a good idea
+		ai_chance = {
+        factor = 100
+        }
+		BEL = { add_to_faction = LUX }
+	}
+
+	option = {
+		name = belgium.5.b #Luxemburg can defend itself
+		ai_chance = {
+        factor = 0
+        }
+		BEL = { country_event = { id = belgium.6 days = 1 } }
+	}
+}
+
+country_event = { #Luxemburg Declines
+	id = belgium.6
+	title = belgium.6.t #Luxemburg Declines our Offer
+	desc = belgium.6.d #Today the government of Luxemburg has told our Ambassador that they will not embrace our offer to form a military alliance between our two nations.
+	#picture =
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = belgium.6.a #They'll see how good they can defend themselves
+	}
+
+}
+
+country_event = { #Invite Germany
+	id = belgium.7
+	title = belgium.7.t #Belgium wants to join the Berlin Pact
+	desc = belgium.7.d #Today the Belgian ambassador to Berlin has submitte a proposal of the Belgian governement to form an military alliance between our two nations. This could greatly benefit us and open the way directly into Paris, making us nearly invincible to an attack from the West. However accepting this request could cause an intervention from either France or Britain who could see their hegemony challenged by this move.
+	#picture =
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { #Accept
+		name = belgium.7.a #We must not hesitate to seize this chance
+		GER = { add_to_faction = BEL }
+	}
+
+	option = { #Only in Exchange for Eupen
+		name = belgium.7.b #We will only accept if we get back Eupen-Malmedy
+		BEL = { country_event = { id = belgium.8 days = 1 } }
+	}
+
+	option = { #Decline
+		name = belgium.7.c #This is to risky
+		BEL = { country_event = { id = belgium.9 days = 1 } }
+	}
+}
+
+country_event = { #Demand French Guarantee
+	id = belgium.9
+	title = belgium.9.t #Belgium demands a guarantee of independence
+	desc = belgium.9.d #After a great focus on neutrality, following the great war, the belgian government now seems to have changed it's mind and has demanded a guarantee of independence from us. This greatly plays into our strategic inerests in the region and could put a greater distance between the germans and Paris, which has always been endangered due to it's close proximity to the belgian border.
+	#picture =
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = belgium.9.a #Of course
+		ai_chance = {
+		factor = 99
+		}
+		FRA = { give_guarantee = BEL }
+	}
+
+	option = { #Why risk another war for tiny Belgium?
+		name = belgium.9.b
+		ai_chance = {
+		factor = 1
+		}
+	}
+}
+country_event = { #formation of the benlux union (HOL)
+	id = belgium.1003
+	title = belgium.1003.t #
+	desc = belgium.1003.d #
+	#picture =
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = belgium.1003.a #Of course
+		ai_chance = {
+		factor = 90
+		}
+		BEL = {
+		set_cosmetic_tag = BEL_union
+		annex_country = { target = HOL transfer_troops = yes }
+		add_ideas = BEL_union_idea
+		add_state_core = 35
+		add_state_core = 7
+		add_state_core = 36
+		}
+	}
+
+	option = { 
+		name = belgium.1003.b
+		ai_chance = {
+		factor = 10
+		}
+	}
+}
+country_event = { #formation of the benlux union (LUX)
+	id = belgium.1004
+	title = belgium.1004.t #
+	desc = belgium.1004.d #
+	#picture =
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = belgium.1003.a #Of course
+		ai_chance = {
+		factor = 100
+		}
+		BEL = {
+		annex_country = { target = LUX transfer_troops = yes }
+		add_state_core = 8
+		}
+	}
+
+	option = { 
+		name = belgium.1003.b
+		ai_chance = {
+		factor = 0
+		}
+	}
+}
+country_event = { #Eupen for Flanders
+	id = belgium.10
+	title = belgium.10.t #
+	desc = belgium.10.d #
+	#picture =
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = belgium.10.a #Of course
+		ai_chance = {
+		factor = 100
+		}
+		GER = {
+		transfer_state = 791
+		}
+		BEL = {
+		add_state_claim = 812
+		}
+		
+	}
+
+	option = { 
+		name = belgium.10.b
+		ai_chance = {
+		factor = 0
+		}
+	}
+}
+country_event = { #Belgium requests weapons
+	id = belgium.11
+	title = belgium.11.t #
+	desc = belgium.11.d #
+	#picture = 
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = belgium.11.a #Of course
+		ai_chance = {
+		factor = 100
+		}
+		send_equipment = { target = BEL type = infantry_equipment amount = 2000 }
+			
+	}
+
+	option = { 
+		name = belgium.11.b
+		ai_chance = {
+		factor = 0
+		}
+	}
+}
+country_event = { #Belgian elections
+	id = belgium.12
+	title = belgium.12.t #
+	desc = belgium.12.d #
+	picture = GFX_news_event_generic_sign_treaty1
+
+	fire_only_once = yes
+	trigger = {
+	tag = BEL
+	date > 1936.5.1
+	date < 1936.6.1
+	}
+	
+	option = {
+		name = belgium.12.a #Left
+		ai_chance = {
+		factor = 15
+		}
+		BEL = { country_event = { id = belgium.13 days = 1 }}
+	}
+
+	option = {
+		name = belgium.12.b #Centre
+		ai_chance = {
+		factor = 70
+		}
+		BEL = { country_event = { id = belgium.14 days = 1 }}
+	}
+			
+	option = {
+		name = belgium.12.c #Right
+		ai_chance = {
+		factor = 15
+		}
+		BEL = { country_event = { id = belgium.15 days = 1 }}		
+	}		
+}
+country_event = { #LeftieBois
+	id = belgium.13
+	title = belgium.13.t #
+	desc = belgium.13.d #
+	picture = GFX_news_event_generic_sign_treaty1
+
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = {
+		name = belgium.13.a #Marxist Victory
+        ai_chance = {
+        factor = 10
+        }
+        set_country_flag = bel_elections_begone
+        set_politics = { ruling_party = communism elections_allowed = no }
+
+        complete_national_focus = BEL_1936_general_elections
+
+        complete_national_focus = BEL_election_victory_communist
+        }
+	option = {
+		name = belgium.13.b #Lazy Marxist Victory
+        ai_chance = {
+        factor = 40
+        }
+        set_country_flag = bel_elections_begone
+        set_politics = { ruling_party = socialist elections_allowed = yes }
+
+        complete_national_focus = BEL_1936_general_elections
+
+        complete_national_focus = BEL_election_victory_labour
+    }
+}
+country_event = { #Centrebois
+	id = belgium.14
+	title = belgium.14.t #
+	desc = belgium.14.d #
+	picture = GFX_news_event_generic_sign_treaty1
+
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = {
+		name = belgium.14.a #Liberal
+        ai_chance = {
+        factor = 35
+        }
+        set_country_flag = bel_elections_begone
+        set_politics = { ruling_party = democratic elections_allowed = yes }
+
+        complete_national_focus = BEL_1936_general_elections
+
+        complete_national_focus = BEL_election_victory_liberal
+        }
+	option = {
+		name = belgium.14.b #Conservatives
+        ai_chance = {
+        factor = 40
+        }
+        set_country_flag = bel_elections_begone
+        set_politics = { ruling_party = conservatives elections_allowed = yes }
+
+        complete_national_focus = BEL_1936_general_elections
+
+        complete_national_focus = BEL_election_victory_catholic
+    }
+option = {
+		name = belgium.14.c #Monarchists
+        ai_chance = {
+        factor = 25
+        }
+        set_country_flag = bel_elections_begone
+        set_politics = { ruling_party = neutrality elections_allowed = no }
+
+        complete_national_focus = BEL_1936_general_elections
+
+        complete_national_focus = BEL_election_victory_monarchist
+    }
+}			
+country_event = { #HueyLongFanclub
+	id = belgium.15
+	title = belgium.15.t #
+	desc = belgium.15.d #
+	picture = GFX_news_event_generic_sign_treaty1
+
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = {
+		name = belgium.15.a #Rexist
+        ai_chance = {
+        factor = 50
+        }
+        set_country_flag = bel_elections_begone
+        set_politics = { ruling_party = fascism elections_allowed = no }
+
+        complete_national_focus = BEL_1936_general_elections
+
+        complete_national_focus = BEL_election_victory_rex
+        }
+	option = {
+		name = belgium.15.b #Verdinaso
+        ai_chance = {
+        factor = 50
+        }
+        set_country_flag = bel_elections_begone
+        set_politics = { ruling_party = fascism elections_allowed = no }
+
+        complete_national_focus = BEL_1936_general_elections
+
+        complete_national_focus = BEL_election_victory_verdinaso
+    }
+}			
