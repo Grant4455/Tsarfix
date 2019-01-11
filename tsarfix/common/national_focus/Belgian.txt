@@ -58,6 +58,7 @@ focus_tree = {
 			focus = BEL_election_victory_rex
 			focus = BEL_election_victory_liberal
 			focus = BEL_election_victory_catholic
+			focus = BEL_election_victory_monarchist
 		}
 		x = 3
 		y = 1
@@ -129,6 +130,7 @@ focus_tree = {
 			focus = BEL_election_victory_rex
 			focus = BEL_election_victory_catholic
 			focus = BEL_election_victory_labour
+			focus = BEL_election_victory_monarchist
 		}
 		x = 5
 		y = 1
@@ -196,6 +198,7 @@ focus_tree = {
 			focus = BEL_election_victory_rex
 			focus = BEL_election_victory_liberal
 			focus = BEL_election_victory_labour
+			focus = BEL_election_victory_monarchist
 		}
 		x = 7
 		y = 1
@@ -229,8 +232,9 @@ focus_tree = {
 		cost = 10.00
 		prerequisite = {
 			focus = BEL_unemployment_measures
+			focus = BEL_Bel_King
 		}
-		x = 7
+		x = 8
 		y = 3
 		completion_reward = {
 			add_ideas = BEL_devalue_currency_idea
@@ -243,7 +247,7 @@ focus_tree = {
 		prerequisite = {
 			focus = BEL_devalue_the_currency
 		}
-		x = 7
+		x = 8
 		y = 4
 		completion_reward = {
 		add_ideas = BEL_40h_week_idea
@@ -262,6 +266,7 @@ focus_tree = {
 			focus = BEL_election_victory_catholic
 			focus = BEL_election_victory_liberal
 			focus = BEL_election_victory_labour
+			focus = BEL_election_victory_monarchist
 		}
 		x = 11
 		y = 1
@@ -304,6 +309,7 @@ focus_tree = {
 			focus = BEL_election_victory_catholic
 			focus = BEL_election_victory_liberal
 			focus = BEL_election_victory_labour
+			focus = BEL_election_victory_monarchist
 		}
 		x = 13
 		y = 1
@@ -354,7 +360,7 @@ focus_tree = {
 			focus = BEL_reduce_flemish_autonomy
 			focus = BEL_declare_flemish_independence
 		}
-		x = 11
+		x = 12
 		y = 3
 		completion_reward = {
 			add_ideas = BEl_state_christianity
@@ -373,6 +379,7 @@ focus_tree = {
 			focus = BEL_election_victory_catholic
 			focus = BEL_election_victory_liberal
 			focus = BEL_election_victory_labour
+			focus = BEL_election_victory_monarchist
 		}
 		x = 1
 		y = 1
@@ -437,6 +444,51 @@ focus_tree = {
 		y = 4
 		completion_reward = {
 			add_stability = 0.15
+		}
+	}
+	focus = {
+		id = BEL_election_victory_monarchist
+		icon = GFX_focus_rom_royal_dictatorship
+		cost = 10.00
+		prerequisite = {
+			focus = BEL_1936_general_elections
+		}
+		mutually_exclusive = {
+			focus = BEL_election_victory_verdinaso
+			focus = BEL_election_victory_rex
+			focus = BEL_election_victory_catholic
+			focus = BEL_election_victory_liberal
+			focus = BEL_election_victory_labour
+			focus = BEL_election_victory_communist
+		}
+		x = 9
+		y = 1
+		available = { 
+			has_war = no 
+			OR = {
+			has_government = socialist
+			has_government = communism
+			}}
+		completion_reward = {
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.30
+			}
+		set_politics = { ruling_party = neutrality elections_allowed = no }	
+		}
+	}
+	focus = {
+		id = BEL_Bel_King
+		icon = GFX_goal_tfv_strengthen_commonwealth_ties
+		cost = 10.00
+		prerequisite = {
+			focus = BEL_election_victory_monarchist
+		}
+		x = 9
+		y = 2
+		completion_reward = {
+			remove_ideas = BEL_wallonie_flanders_idea
+			add_ideas = BEL_wallonie_flanders_idea_unified
 		}
 	}
 	focus = {
@@ -903,13 +955,13 @@ focus_tree = {
 		icon = GFX_goal_tfv_saf_anti_colonialist_crusade
 		cost = 10.00
 		prerequisite = {
-			focus = BEL_joint_GER
-			focus = BEL_greater_netherlands
+			focus = BEL_war_HOL
 		}
 		x = 26
-		y = 4
+		y = 5
 		will_lead_to_war_with = LUX
 		available = {
+		owns_state = 765
 		LUX = { exists = yes }
 		}
 		completion_reward = {
@@ -1528,7 +1580,7 @@ focus_tree = {
 		prerequisite = {
 			focus = BEL_embrace_catholicism
 		}
-		x = 11
+		x = 12
 		y = 4
 		completion_reward = {
 		random_owned_controlled_state = {
@@ -1699,10 +1751,11 @@ focus_tree = {
 		icon = GFX_goal_generic_major_war
 		cost = 10.00
 		prerequisite = {
-			focus = BEL_take_luxemburg
+			focus = BEL_joint_GER
+			focus = BEL_greater_netherlands
 		}
 		x = 26
-		y = 5
+		y = 4
 		will_lead_to_war_with = HOL
 		available = {
 		HOL = {
