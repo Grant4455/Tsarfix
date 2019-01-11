@@ -794,7 +794,7 @@ focus_tree = {
 		x = 20
 		y = 3
 		completion_reward = {
-		create_faction = belgian_entente_faction
+		create_faction = belgian_entente
 		set_rule = { can_create_factions = yes }
 		}
 	}
