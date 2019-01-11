@@ -964,6 +964,9 @@ focus_tree = {
 		y = 5
 		completion_reward = {
 		AUS = { set_cosmetic_tag = AUS_vaterland }
+		
+		custom_effect_tooltip = GDL_Claim
+		
 		hidden_effect = {
 		add_state_claim = 54
 		add_state_claim = 53
