@@ -1066,11 +1066,14 @@ focus_tree = {
 		
 		add_political_power = 120
 		
-		add_state_core = 54
-		add_state_core = 53
-		add_state_core = 52
-		add_state_core = 50
-		add_state_core = 42
+		custom_effect_tooltip = GDL_Unification
+		
+		hidden_effect = {
+		 add_state_core = 54
+		 add_state_core = 53
+		 add_state_core = 52
+		 add_state_core = 50
+		 add_state_core = 42
 		 add_state_core = 791
 		 add_state_core = 55
 		 add_state_core = 51
@@ -1097,7 +1100,7 @@ focus_tree = {
 		 add_state_core = 188
 		 add_state_core = 28
 		 add_state_core = 792
-		
+		}
 	}
 	}
 	focus = {
