@@ -1,0 +1,1206 @@
+focus_tree = {
+	id = Austria
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = AUS
+		}
+	}
+	default = no
+	focus = {
+		id = AUS_new_constitution
+		icon = GFX_goal_generic_demand_territory
+		cost = 10.00
+		x = 1
+		y = 0
+		completion_reward = { 
+		add_political_power = 120
+		}
+	}
+	focus = {
+		id = AUS_modernise_infra
+		icon = GFX_goal_generic_construct_infrastructure
+		cost = 10.00
+		prerequisite = {
+			focus = AUS_new_constitution
+		}
+		x = 0
+		y = 1
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 0
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = infrastructure
+										size > 0
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 1
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = infrastructure
+										size > 1
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = AUS_civil_effort
+		icon = GFX_goal_generic_construct_civ_factory
+		cost = 10.00
+		prerequisite = {
+			focus = AUS_modernise_infra
+		}
+		x = 0
+		y = 2
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = AUS_civil_effort2
+		icon = GFX_goal_generic_construct_civ_factory
+		cost = 10.00
+		prerequisite = {
+			focus = AUS_civil_effort
+		}
+		x = 0
+		y = 3
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = AUS_milit_effort
+		icon = GFX_goal_generic_construct_mil_factory
+		cost = 10.00
+		prerequisite = {
+			focus = AUS_civil_effort2
+		}
+		x = 0
+		y = 4
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = AUS_army
+		icon = GFX_goal_generic_build_tank
+		cost = 10.00
+		prerequisite = {
+			focus = AUS_new_constitution
+		}
+		x = 2
+		y = 1
+		completion_reward = {
+		army_experience = 10
+			add_tech_bonus = {
+				name = infantry_weapons_bonus
+				bonus = 0.5
+				uses = 2
+				category = infantry_weapons
+				category = artillery
+			}
+		}
+	}
+	focus = {
+		id = AUS_air_force
+		icon = GFX_goal_generic_build_airforce
+		cost = 10.00
+		prerequisite = {
+			focus = AUS_army
+		}
+		x = 2
+		y = 2
+		completion_reward = { 
+		air_experience = 10
+		153 = {
+		   add_building_construction = {
+					type = air_base
+					level = 4
+					instant_build = yes
+		   }
+		}
+		}
+	}
+	focus = {
+		id = AUS_navy
+		icon = GFX_goal_generic_build_navy
+		cost = 10.00
+		prerequisite = {
+			focus = AUS_air_force
+		}
+		x = 2
+		y = 3
+		available = {
+			any_state = {
+				is_controlled_by = AUS
+				is_coastal = yes
+			}
+		}
+		completion_reward = {
+			navy_experience = 10
+			if = {
+				limit = {
+					NOT = {
+						any_owned_state = {
+							dockyard > 0
+							free_building_slots = {
+								building = dockyard
+								size > 2
+								include_locked = yes
+							}
+						}
+					}
+					any_owned_state = {
+						is_coastal = yes
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						is_coastal = yes
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+				}
+				set_country_flag = naval_effort_built
+			}
+			if = {
+				limit = {
+					NOT = { has_country_flag = naval_effort_built }
+					any_owned_state = {
+						dockyard > 0
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						dockyard > 0
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+				}
+				set_country_flag = naval_effort_built
+			}
+			if = {
+				limit = {
+					NOT = { has_country_flag = naval_effort_built }
+					NOT = {
+						any_owned_state = {
+							free_building_slots = {
+								building = dockyard
+								size > 2
+								include_locked = yes
+							}
+						}
+					}
+				}
+				random_state = {
+					limit = {
+						controller = { tag = ROOT }
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+				}
+			}			
+		}
+	}
+	focus = {
+		id = AUS_wunderwaffe
+		icon = GFX_focus_wonderweapons
+		cost = 10.00
+		prerequisite = {
+			focus = AUS_navy
+		}
+		x = 2
+		y = 4
+		completion_reward = {
+			add_tech_bonus = {
+				name = nuclear_bonus
+				ahead_reduction = 0.5
+				category = nuclear
+			}
+		}
+	}
+	focus = {
+		id = AUS_science1
+		icon = GFX_goal_generic_scientific_exchange
+		cost = 10.00
+		prerequisite = {
+			focus = AUS_milit_effort
+			focus = AUS_wunderwaffe
+		}
+		x = 1
+		y = 5
+		completion_reward = {
+	add_research_slot = 1 
+	}
+	}
+	focus = {
+		id = AUS_forts
+		icon = GFX_goal_generic_fortify_city
+		cost = 10.00
+		prerequisite = {
+			focus = AUS_army
+		}
+		x = 4
+		y = 2
+		completion_reward = {
+		random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}	
+		102 = { 
+		add_building_construction = {
+					type = bunker
+					level = 5
+					province = 9627
+					instant_build = yes
+				  }
+		add_building_construction = {
+					type = bunker
+					level = 5
+					province = 6650
+					instant_build = yes
+				  }
+		add_building_construction = {
+					type = bunker
+					level = 5
+					province = 3654
+					instant_build = yes
+				  }	
+		add_building_construction = {
+					type = bunker
+					level = 5
+					province = 596
+					instant_build = yes
+				  }	
+		add_building_construction = {
+					type = bunker
+					level = 5
+					province = 665
+					instant_build = yes
+				  }
+		add_building_construction = {
+					type = bunker
+					level = 5
+					province = 6672
+					instant_build = yes
+				  }				
+		}
+		
+		}
+	}
+	focus = {
+		id = AUS_fighter
+		icon = GFX_goal_generic_air_fighter
+		cost = 10.00
+		prerequisite = {
+			focus = AUS_air_force
+		}
+		x = 4
+		y = 3
+		completion_reward = {
+		   add_tech_bonus = {
+				name = fighter_bonus
+				bonus = 0.5
+				uses = 1
+				technology = early_fighter
+				technology = fighter1
+				technology = fighter2
+				technology = fighter3
+			}
+			}		
+	}
+	focus = {
+		id = AUS_ships
+		icon = GFX_goal_generic_navy_battleship
+		cost = 10.00
+		prerequisite = {
+			focus = AUS_navy
+		}
+		x = 4
+		y = 4
+		available = {
+			any_state = {
+				is_controlled_by = AUS
+				is_coastal = yes
+			}
+		}
+		completion_reward = {
+			navy_experience = 25
+			add_tech_bonus = {
+				name = capital_ships_bonus
+				bonus = 0.5
+				ahead_reduction = 1
+				uses = 2
+				technology = basic_battlecruiser
+				technology = basic_battleship
+				technology = improved_battleship
+				technology = advanced_battleship
+				technology = heavy_battleship
+				technology = heavy_battleship2
+				technology = early_carrier
+				technology = basic_carrier
+				technology = improved_carrier
+				technology = advanced_carrier
+			}
+		}
+	}
+	focus = {
+		id = AUS_militarism
+		icon = GFX_goal_generic_small_arms
+		cost = 10.00
+		prerequisite = {
+			focus = AUS_army
+		}
+		x = 6
+		y = 2
+		completion_reward = {
+		add_ideas = militarism_focus
+		}
+	}
+	focus = {
+		id = AUS_bomber
+		icon = GFX_goal_generic_air_bomber
+		cost = 10.00
+		prerequisite = {
+			focus = AUS_air_force
+		}
+		x = 6
+		y = 3
+		completion_reward = {
+			add_tech_bonus = {
+				name = bomber_bonus
+				bonus = 0.5
+				uses = 2
+				technology = strategic_bomber1
+				technology = strategic_bomber2
+				technology = strategic_bomber3
+				category = tactical_bomber
+			}
+		}
+	}
+	focus = {
+		id = AUS_marines
+		icon = GFX_goal_generic_navy_cruiser
+		cost = 10.00
+		prerequisite = {
+			focus = AUS_navy
+		}
+		x = 6
+		y = 4
+		completion_reward = {
+		add_tech_bonus = {
+				name = special_forces_bonus
+				bonus = 0.5
+				uses = 1
+				technology = marines
+				technology = marines2
+				}
+				}
+	}
+	focus = {
+		id = AUS_war_games
+		icon = GFX_goal_generic_army_doctrines
+		cost = 10.00
+		prerequisite = {
+			focus = AUS_army
+		}
+		x = 8
+		y = 2
+		completion_reward = { 
+		add_tech_bonus = {
+				name = FRA_army_reform
+				bonus = 0.5
+				uses = 2
+				category = land_doctrine
+			}
+		}	
+	}
+	focus = {
+		id = AUS_paramilitarism
+		icon = GFX_goal_generic_special_forces
+		cost = 10.00
+		prerequisite = {
+			focus = AUS_air_force
+		}
+		x = 8
+		y = 3
+		completion_reward = {
+		    add_ideas = military_youth_focus
+		}
+	}
+	focus = {
+		id = AUS_steel
+		icon = GFX_goal_generic_soviet_construction
+		cost = 10.00
+		prerequisite = {
+			focus = AUS_army
+		}
+		x = 10
+		y = 2
+		completion_reward = {
+			add_resource = {
+				type = steel
+				amount = 50
+				state = 4
+			}
+			}
+	}
+	focus = {
+		id = AUS_strong_gov
+		icon = GFX_goal_tripartite_pact
+		cost = 10.00
+		prerequisite = {
+			focus = AUS_new_constitution
+		}
+		x = 15
+		y = 1
+		completion_reward = { 
+	   add_stability = 0.05
+	   add_political_power = 120
+	   }
+	}
+	focus = {
+		id = AUS_nazis
+		icon = GFX_goal_support_fascism
+		cost = 10.00
+		prerequisite = {
+			focus = AUS_strong_gov
+		}
+		mutually_exclusive = {
+			focus = AUS_monarchy
+		}
+		x = 13
+		y = 2
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+		set_politics = { ruling_party = fascism elections_allowed = no }
+		add_political_power = 120
+		create_country_leader = {
+	name = "Adolf Hitler"
+	desc = "POLITICS_ADOLF_HITLER_DESC"
+	picture = "Portrait_Germany_Adolf_Hitler.dds"
+	expire = "1965.1.1"
+	ideology = nazism
+	traits = {
+		dictator
+	}
+}
+		set_party_name = {
+					ideology = fascism
+					long_name = "Österreichische Nationalpartei"
+					name = "ÖNP"
+				}
+		add_popularity = {
+					ideology = fascism
+					popularity = 0.15
+				}
+		hidden_effect = { 
+		news_event = { id = austria.99 }
+		}		
+		}
+	}
+	focus = {
+		id = AUS_mobilisation
+		icon = GFX_goal_rhineland
+		cost = 10.00
+		prerequisite = {
+			focus = AUS_nazis
+		}
+		x = 12
+		y = 3
+		completion_reward = {
+	add_ideas = extensive_conscription
+	add_ideas = war_economy
+	}
+	}
+	focus = {
+		id = AUS_war_science
+		icon = GFX_goal_generic_scientific_exchange
+		cost = 10.00
+		prerequisite = {
+			focus = AUS_nazis
+		}
+		x = 14
+		y = 3
+		completion_reward = {
+		add_research_slot = 1
+		}
+	}
+	focus = {
+		id = AUS_ties_RUS
+		icon = GFX_goal_generic_improve_relations
+		cost = 10.00
+		prerequisite = {
+			focus = AUS_mobilisation
+		}
+		x = 14
+		y = 4
+		available = { RUS = {
+		exists = yes
+		has_government = fascism
+		}}
+		completion_reward = {
+		add_opinion_modifier = { target = RUS modifier = improved_good }
+		}
+	}
+	focus = {
+		id = AUS_joint_RUS
+		icon = GFX_goal_generic_CAS
+		cost = 10.00
+		prerequisite = {
+			focus = AUS_ties_RUS
+		}
+		x = 14
+		y = 5
+		completion_reward = {
+		army_experience = 50 
+		}
+	}
+	focus = {
+		id = AUS_monarchy
+		icon = GFX_goal_tfv_strengthen_commonwealth_ties
+		cost = 10.00
+		prerequisite = {
+			focus = AUS_strong_gov
+		}
+		mutually_exclusive = {
+			focus = AUS_nazis
+		}
+		x = 17
+		y = 2
+		completion_reward = {
+		add_political_power = 120
+	}
+	}
+	focus = {
+		id = AUS_habsburg_cult
+		icon = GFX_focus_generic_home_defense
+		cost = 10.00
+		prerequisite = {
+			focus = AUS_monarchy
+		}
+		x = 17
+		y = 3
+		completion_reward = {
+		add_stability = 0.15
+		}
+	}
+	#focus = {
+	#	id = AUS_friend_ITA
+	#	icon = GFX_goal_tripartite_pact
+	#	cost = 10.00
+	#	prerequisite = {
+	#		focus = AUS_habsburg_cult
+	#	}
+	#	x = 16
+	#	y = 4
+#
+#	}
+	focus = {
+		id = AUS_friend_GER
+		icon = GFX_goal_generic_improve_relations
+		cost = 10.00
+		prerequisite = {
+			focus = AUS_habsburg_cult
+		}
+		x = 17
+		y = 4
+		bypass = { GER = { exists = no }}
+		completion_reward = {
+		add_opinion_modifier = { target = GER modifier = improved_good }
+		}
+	}
+	focus = {
+		id = AUS_science
+		icon = GFX_goal_generic_scientific_exchange
+		cost = 10.00
+		prerequisite = {
+			#focus = AUS_friend_ITA
+			focus = AUS_friend_GER
+		}
+		x = 18
+		y = 5
+		completion_reward = {
+		add_research_slot = 1
+		}
+	}
+	focus = {
+		id = AUS_seek_reuni
+		icon = GFX_focus_proclaim_the_restauration_of_Austria_Hungary
+		cost = 10.00
+		prerequisite = {
+			focus = AUS_friend_GER
+		}
+		x = 16
+		y = 5
+		completion_reward = {
+		add_stability = 0.05
+		add_political_power = 120
+		}
+	}
+	focus = {
+		id = AUS_italian_claims
+		icon = GFX_goal_generic_forceful_treaty
+		cost = 10.00
+		prerequisite = {
+			focus = AUS_seek_reuni
+		}
+		x = 18
+		y = 6
+		completion_reward = {
+		add_state_claim = 160
+		add_state_claim = 772
+		add_state_claim = 736
+		create_wargoal = { type = annex_everything target = ITA }
+		}
+	}
+	focus = {
+		id = AUS_puppet_CZE
+		icon = GFX_goal_generic_defence
+		cost = 10.00
+		prerequisite = {
+			focus = AUS_seek_reuni
+		}
+		x = 16
+		y = 6
+		available = { has_army_manpower = { size > 120000 } }
+		bypass = { CZE = { exists = no } }
+		completion_reward = {
+		CZE = {country_event = { id = austria.1000 }
+		}
+	}
+	}
+	focus = {
+		id = AUS_central_powers
+		icon = GFX_goal_anschluss
+		cost = 10.00
+		prerequisite = {
+			focus = AUS_german_dream
+		}
+		x = 10
+		y = 5
+		completion_reward = {
+		set_rule = { can_create_factions = yes }
+		}
+	}
+	focus = {
+		id = AUS_intergrate_CZE
+		icon = GFX_goal_generic_build_tank
+		cost = 10.00
+		prerequisite = {
+			focus = AUS_puppet_CZE
+		}
+		x = 16
+		y = 7
+		available = { 
+		9 = { is_controlled_by = AUS }
+		}
+		completion_reward = {
+		add_state_core = 9
+		add_state_core = 69
+		add_state_core = 75
+		add_state_core = 74
+		add_state_core = 72
+		add_state_claim = 70
+		add_state_claim = 71
+		add_state_claim = 73
+		add_state_claim = 664
+		add_stability = -0.05
+		}
+	}
+	focus = {
+		id = AUS_claim_HUN
+		icon = GFX_focus_aus_hun
+		cost = 10.00
+		prerequisite = {
+			focus = AUS_seek_reuni
+		}
+		x = 20
+		y = 6
+		bypass = { HUN = { exists = no } } 
+		available = { has_war = no 
+		HUN = { exists = yes }
+		CZE = { exists = no }
+		}
+		completion_reward = {
+		create_wargoal = { type = annex_everything target = HUN }
+        add_state_core = 43
+		add_state_core = 154
+		add_state_core = 155
+		}
+	}
+	focus = {
+		id = AUS_claim_KRW
+		icon = GFX_goal_generic_forceful_treaty
+		cost = 10.00
+		prerequisite = {
+			focus = AUS_claim_ROM
+		}
+		x = 20
+		y = 8
+		completion_reward = {
+		add_state_claim = 91
+		add_state_claim = 89
+		add_state_claim = 88
+		}
+	}
+	focus = {
+		id = AUS_claim_ROM
+		icon = GFX_goal_generic_forceful_treaty
+		cost = 10.00
+		prerequisite = {
+			focus = AUS_claim_HUN
+		}
+		x = 20
+		y = 7
+		bypass = { ROM = { exists = no }}
+		available = { has_war = no
+		HUN = { exists = no }	}
+		completion_reward = {
+		ROM = {country_event = { id = austria.1006 }
+		}
+		}
+	}
+	focus = {
+		id = AUS_war_YUG
+		icon = GFX_goal_generic_major_war
+		cost = 10.00
+		prerequisite = {
+			focus = AUS_italian_claims
+		}
+		prerequisite = {
+			focus = AUS_claim_KRW
+		}
+		x = 18
+		y = 9
+		will_lead_to_war_with = SER
+		available = { SER = { 
+		is_puppet = no
+		exists = yes } } 
+		completion_reward = {
+		create_wargoal = { type = annex_everything target = CRO }
+		create_wargoal = { type = annex_everything target = SER }
+		create_wargoal = { type = annex_everything target = MNT }
+		}
+	}
+	focus = {
+		id = AUS_german_dream
+		icon = GFX_goal_generic_political_pressure
+		cost = 10.00
+		prerequisite = {
+			focus = AUS_mobilisation
+		}
+		x = 12
+		y = 4
+		completion_reward = {
+		add_war_support = 0.15
+		}
+	}
+	focus = {
+		id = AUS_claim_german_land
+		icon = GFX_goal_generic_more_territorial_claims
+		cost = 10.00
+		prerequisite = {
+			focus = AUS_german_dream
+		}
+		x = 12
+		y = 5
+		completion_reward = {
+		AUS = { set_cosmetic_tag = AUS_vaterland }
+		hidden_effect = {
+		add_state_claim = 54
+		add_state_claim = 53
+		add_state_claim = 52
+		add_state_claim = 50
+		 add_state_claim = 42
+		 add_state_claim = 791
+		 add_state_claim = 55
+		 add_state_claim = 51
+		 add_state_claim = 793
+		 add_state_claim = 794
+		 add_state_claim = 57
+		 add_state_claim = 56
+		 add_state_claim = 59
+		 add_state_claim = 58
+		 add_state_claim = 61
+		 add_state_claim = 762
+		 add_state_claim = 60
+		 add_state_claim = 65
+		 add_state_claim = 64
+		 add_state_claim = 68
+		 add_state_claim = 62
+		 add_state_claim = 66
+		 add_state_claim = 67
+		 add_state_claim = 763
+		 add_state_claim = 86
+		 add_state_claim = 63
+		 add_state_claim = 85
+		 add_state_claim = 5
+		 add_state_claim = 188
+		 add_state_claim = 28
+		 add_state_claim = 792
+		}
+		}
+	}
+	focus = {
+		id = AUS_war_BAV
+		icon = GFX_goal_generic_war_with_comintern
+		cost = 10.00
+		prerequisite = {
+			focus = AUS_claim_german_land
+		}
+		mutually_exclusive = {
+			focus = AUS_war_GER
+		}
+		x = 10
+		y = 6
+		will_lead_to_war_with = BAV
+		available = { 
+		BAV = { exists = yes }
+		GER = { exists = no }
+		}
+		completion_reward = {
+		create_wargoal = {
+			type = annex_everything
+			target = BAV
+			}
+	  }
+	}
+	focus = {
+		id = AUS_war_GER
+		icon = GFX_goal_generic_major_war
+		cost = 10.00
+		prerequisite = {
+			focus = AUS_claim_german_land
+		}
+		mutually_exclusive = {
+			focus = AUS_war_BAV
+		}
+		x = 12
+		y = 6
+		will_lead_to_war_with = GER
+		available = { 
+		GER = { exists = yes }
+		BAV = { exists = no }
+		}
+		completion_reward = {
+		create_wargoal = {
+			type = annex_everything
+			target = GER
+			}
+	  }
+	}
+	focus = {
+		id = AUS_reunite_all_germans
+		icon = GFX_goal_generic_demand_territory
+		cost = 10.00
+		prerequisite = {
+			focus = AUS_war_GER
+			focus = AUS_war_BAV
+		}
+		x = 11
+		y = 7
+	available = { 
+		64 = { is_controlled_by = AUS }
+		52 = { is_controlled_by = AUS }
+		4  = { is_controlled_by = AUS }
+		}
+		completion_reward = { 
+		
+		add_political_power = 120
+		
+		add_state_core = 54
+		add_state_core = 53
+		add_state_core = 52
+		add_state_core = 50
+		add_state_core = 42
+		 add_state_core = 791
+		 add_state_core = 55
+		 add_state_core = 51
+		 add_state_core = 793
+		 add_state_core = 794
+		 add_state_core = 57
+		 add_state_core = 56
+		 add_state_core = 59
+		 add_state_core = 58
+		 add_state_core = 61
+		 add_state_core = 762
+		 add_state_core = 60
+		 add_state_core = 65
+		 add_state_core = 64
+		 add_state_core = 68
+		 add_state_core = 62
+		 add_state_core = 66
+		 add_state_core = 67
+		 add_state_core = 763
+		 add_state_core = 86
+		 add_state_core = 63
+		 add_state_core = 85
+		 add_state_core = 5
+		 add_state_core = 188
+		 add_state_core = 28
+		 add_state_core = 792
+		
+	}
+	}
+	focus = {
+		id = AUS_claim_CZE
+		icon = GFX_goal_generic_attack_allies
+		cost = 10.00
+		prerequisite = {
+			focus = AUS_claim_german_land
+		}
+		x = 14
+		y = 6
+	bypass = { 
+		CZE = { exists = no }
+		}
+		available = { 
+		CZE = { exists = yes }
+		}
+		completion_reward = { 
+		create_wargoal = {
+			type = annex_everything
+			target = CZE
+			}
+		}
+	}
+	focus = {
+		id = AUS_war_FRA
+		icon = GFX_goal_generic_major_war
+		cost = 10.00
+		prerequisite = {
+			focus = AUS_reunite_all_germans
+		}
+		x = 11
+		y = 8
+		will_lead_to_war_with = FRA
+		available = {
+			NOT = { country_exists = GER }
+		}
+
+		completion_reward = {
+		create_wargoal = {
+			type = annex_everything
+			target = FRA
+			}
+	}
+	}
+	focus = {
+		id = AUS_war_ITA
+		icon = GFX_goal_generic_major_war
+		cost = 10.00
+		prerequisite = {
+			focus = AUS_claim_CZE
+		}
+		x = 14
+		y = 7
+		will_lead_to_war_with = ITA
+		available = {
+			NOT = { country_exists = CZE }
+		}
+
+		completion_reward = {
+		create_wargoal = {
+			type = annex_everything
+			target = ITA
+			}
+	}
+	}
+	focus = {
+		id = AUS_rocketry
+		icon = GFX_focus_rocketry
+		cost = 10.00
+		prerequisite = {
+			focus = AUS_science1
+		}
+		x = 1
+		y = 6
+		completion_reward = {
+			add_tech_bonus = {
+				name = FRA_nuclear_effort
+				bonus = 0.5
+				category = nuclear
+				category = rocketry
+			}
+		}	
+	}
+	focus = {
+		id = AUS_war_RUS
+		icon = GFX_goal_generic_major_war
+		cost = 10.00
+		prerequisite = {
+			focus = AUS_claim_KRW
+		}
+		x = 20
+		y = 9
+		will_lead_to_war_with = RUS
+		available = {
+			RUS = { exists = yes }
+		}
+
+		completion_reward = {
+		create_wargoal = {
+			type = annex_everything
+			target = RUS
+			}
+	}
+	}
+}
